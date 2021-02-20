@@ -1,0 +1,10 @@
+﻿using UnityEngine;
+
+public class Box : MonoBehaviour, IDamageable
+{
+    public bool ApplyDamage(Rigidbody rigidbody, float force)
+    {
+        Debug.Log("Я коробка");
+        return true;
+    }
+}

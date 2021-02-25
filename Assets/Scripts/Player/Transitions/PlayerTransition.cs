@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
 
-public abstract class PlayerTransition : MonoBehaviour
+public abstract class PlayerTransition : Transition
 {
-    [SerializeField] private State _targetState;
+    [SerializeField] private PlayerState _targetState;
 
-    public State TargetState => _targetState;
-
-    public bool NeedTransit { get; protected set; }
+    public PlayerState TargetState => _targetState;
 
     private void OnEnable()
     {

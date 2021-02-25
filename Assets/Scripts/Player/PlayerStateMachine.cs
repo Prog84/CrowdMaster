@@ -1,42 +1,42 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody), typeof(Animator), typeof(HealthContainer))]
-public class PlayerStateMachine : MonoBehaviour
+public class PlayerStateMachine : StateMachine
 {
-    [SerializeField] private State _firstState;
+    [SerializeField] private PlayerState _firstState;
 
-    private State _currentState;
-    private Rigidbody _rigidbody;
-    private Animator _animator;
-    private HealthContainer _health;
+    private PlayerState _currentState;
+    
+    public UnityAction Damaged;
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-        _animator = GetComponent<Animator>();
-        _health = GetComponent<HealthContainer>();
+        Rigidbody = GetComponent<Rigidbody>();
+        Animator = GetComponent<Animator>();
+        Health = GetComponent<HealthContainer>();
     }
 
     private void OnEnable()
     {
-        _health.Died += OnDied;
+        Health.Died += OnDied;
     }
 
     private void OnDisable()
     {
-        _health.Died -= OnDied;
+        Health.Died -= OnDied;
     }
 
     private void OnDied()
     {
         enabled = false;
-        _animator.SetTrigger("broken");
+        Animator.SetTrigger("broken");
     }
 
     private void Start()
     {
         _currentState = _firstState;
-        _currentState.Enter(_rigidbody, _animator);
+        _currentState.Enter(Rigidbody, Animator);
     }
 
     private void Update()
@@ -46,7 +46,7 @@ public class PlayerStateMachine : MonoBehaviour
             return;
         }
 
-        State nextState = _currentState.GetNextState();
+        PlayerState nextState = _currentState.GetNextState();
 
         if (nextState != null)
         {
@@ -54,7 +54,7 @@ public class PlayerStateMachine : MonoBehaviour
         }
     }
 
-    private void Transit(State nextState)
+    private void Transit(PlayerState nextState)
     {
         if (_currentState != null)
         {
@@ -65,12 +65,13 @@ public class PlayerStateMachine : MonoBehaviour
 
         if (_currentState != null)
         {
-            _currentState.Enter(_rigidbody, _animator);
+            _currentState.Enter(Rigidbody, Animator);
         }
     }
 
     public void ApplyDamage(float damage)
     {
-        _health.TakeDamage((int)damage);
+        Damaged?.Invoke();
+        Health.TakeDamage((int)damage);
     }
 }

@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
 
-public abstract class State : MonoBehaviour
+public abstract class PlayerState : State
 {
     [SerializeField] private PlayerTransition[] _transitions;
-
-    public Rigidbody Rigidbody { get; private set; }
-    public Animator Animator { get; private set; }
 
     public void Enter(Rigidbody rigidbody, Animator animator)
     {
@@ -23,7 +20,7 @@ public abstract class State : MonoBehaviour
         }
     }
 
-    public void Exit()
+    public override void Exit()
     {
         if (enabled == true)
         {
@@ -36,7 +33,7 @@ public abstract class State : MonoBehaviour
         }
     }
 
-    public State GetNextState()
+    public PlayerState GetNextState()
     {
         foreach (var transition in _transitions)
         {

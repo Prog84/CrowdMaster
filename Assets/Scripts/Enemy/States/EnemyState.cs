@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 
-public abstract class EnemyState : MonoBehaviour
+public abstract class EnemyState : State
 {
     [SerializeField] private EnemyTransition[] _transitions;
-
-    public Rigidbody Rigidbody { get; private set; }
+   
     public PlayerStateMachine Player { get; private set; }
-    public Animator Animator { get; private set; }
-
+   
     public void Enter(Rigidbody rigidbody, Animator animator, PlayerStateMachine player)
     {
         if (enabled == false)
@@ -26,7 +24,7 @@ public abstract class EnemyState : MonoBehaviour
         }
     }
 
-    public void Exit()
+    public override void Exit()
     {
         if (enabled == true)
         {

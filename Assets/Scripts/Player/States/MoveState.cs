@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MoveState : State
+public class MoveState : PlayerState
 {
     [SerializeField] private StaminaAccumulator _staminaAccumulator;
     [SerializeField] private PlayerInput _playerInput;

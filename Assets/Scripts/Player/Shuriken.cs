@@ -35,7 +35,7 @@ public class Shuriken : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out IDamageable damageable))
         {
-            if (damageable.ApplyDamage(_rigidbody, 50f) == false)
+            if (damageable.ApplyDamage(_rigidbody, _speed) == false)
             {
                 return;
             }

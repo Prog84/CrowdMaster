@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e41abace779cb41b5abf5597064e51, type: 3}
   m_Name: Shuriken
   m_EditorClassIdentifier: 
-  _attackForce: 1
-  _usefulTime: 0
+  _attackForce: 50
+  _usefulTime: 1
   _shuriken: {fileID: 3559398844483710308, guid: 19e2453b03876ac49afffffe7bd791db,
     type: 3}

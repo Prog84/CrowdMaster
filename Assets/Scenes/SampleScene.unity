@@ -29834,7 +29834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739127823}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.55, y: -1.3899999, z: -1.4}
+  m_LocalPosition: {x: 5.78, y: -1.3899999, z: 1.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1310205183}
@@ -48990,7 +48990,6 @@ GameObject:
   - component: {fileID: 6667349562603504446}
   - component: {fileID: 6667349562603504443}
   - component: {fileID: 6667349562603504445}
-  - component: {fileID: 6667349562603504449}
   - component: {fileID: 6667349562603504447}
   - component: {fileID: 6667349562603504444}
   - component: {fileID: 6667349562603504448}
@@ -49086,20 +49085,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 70
---- !u!114 &6667349562603504449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6667349562603504442}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d354646d009448b418aaad339afb442b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <NeedTransit>k__BackingField: 0
-  _targetState: {fileID: 6667349562603504446}
 --- !u!1 &6829497339675944758
 GameObject:
   m_ObjectHideFlags: 0

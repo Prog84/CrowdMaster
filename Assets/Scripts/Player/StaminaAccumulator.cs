@@ -5,6 +5,7 @@ public class StaminaAccumulator : MonoBehaviour
     [SerializeField] private float _accumulationTime;
     [SerializeField] private Ability _ability;
     [SerializeField] private Ability _ultimateAbility;
+    [SerializeField] private Ability _shurikenAbility;
 
     private float _staminaValue;
 
@@ -22,7 +23,7 @@ public class StaminaAccumulator : MonoBehaviour
     {
         if (_staminaValue > _accumulationTime)
         {
-            return _ultimateAbility;
+            return _shurikenAbility;
         }
 
         return _ability;

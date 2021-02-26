@@ -23,9 +23,10 @@ public class StaminaAccumulator : MonoBehaviour
     {
         if (_staminaValue > _accumulationTime)
         {
-            return _shurikenAbility;
+            
+            return _ultimateAbility;
         }
 
-        return _ability;
+        return _shurikenAbility;
     }
 }
